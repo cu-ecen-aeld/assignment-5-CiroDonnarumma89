@@ -5,7 +5,7 @@
 #
 ##############################################################
 
-AESD_ASSIGNMENTS_VERSION = '9cc3599c296dcbd99da68489d21fc4c77820d5cc'
+AESD_ASSIGNMENTS_VERSION = '97d5bc9b040d7cefb9fe47faa731d0b6fa472e08'
 AESD_ASSIGNMENTS_SITE = 'git@github.com:cu-ecen-aeld/assignments-3-and-later-CiroDonnarumma89.git'
 AESD_ASSIGNMENTS_SITE_METHOD = git
 AESD_ASSIGNMENTS_GIT_SUBMODULES = YES
@@ -17,7 +17,7 @@ $(eval $(kernel-module))
 
 define AESD_ASSIGNMENTS_BUILD_CMDS
 	$(MAKE) $(TARGET_CONFIGURE_OPTS) -C $(@D)/finder-app all
-	$(MAKE) $(TARGET_CONFIGURE_OPTS) CFLAGS="$(TARGET_CFLAGS) -DUSE_AESD_CHAR_DEVICE" -C $(@D)/server all
+	$(MAKE) $(TARGET_CONFIGURE_OPTS) CFLAGS="$(TARGET_CFLAGS) -DUSE_AESD_CHAR_DEVICE -I$(@D)/aesd-char-driver" -C $(@D)/server all
 endef
 
 define AESD_ASSIGNMENTS_INSTALL_TARGET_CMDS
